@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JQuery: Datepicker</title>
+		<link href="jquery-ui-1.12.1/jquery-ui.css" rel="stylesheet">
+	</head>
+	<body>
+	
+		<label for="dataRegistro">Escolha a data: </label>
+		<input type="text" id="dataRegistro" class="datepicker" />
+		<br />
+		<label for="dataRegistro">Escolha outra data: </label>
+		<input type="text" id="dataRegistro2" class="datepicker" />
+		
+		<script src="jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+		<script src="jquery-ui-1.12.1/jquery-ui.js"></script>
+	
+		<script>
+			$(function() {
+				$("#dataRegistro").datepicker({
+				  changeMonth: true,
+				  changeYear: true,
+				  numberOfMonths: 3
+				})
+				.on("change", function() {
+				  $("#dataRegistro2").datepicker("option", "minDate", this.value);
+				});
+			});
+			
+			$(function() {
+				$("#dataRegistro2").datepicker({
+				  changeMonth: true,
+				  changeYear: true,
+				  numberOfMonths: 3
+				})
+				.on("change", function() {
+				  $("#dataRegistro").datepicker("option", "maxDate", this.value);
+				});
+			});
+			
+		</script>
+	
+	</body>
+</html>
